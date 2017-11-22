@@ -1,0 +1,19 @@
+<h1>Your review</h1>
+<%= simple_form_for [@restaurant, @review] do |f| %>
+<% if @restaurant.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @restaurant.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%= f.label :rating %>
+<%= f.number_field :rating%>
+<%= f.label :content %>
+<%= f.text_area :content %>
+
+<%= f.submit "Post a review", class: "btn btn-primary" %>
+
+<% end %>
